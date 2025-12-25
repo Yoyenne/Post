@@ -8,9 +8,9 @@ export default function Hero() {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
       {/* Warm Background */}
       <div className="absolute inset-0 z-0 bg-warm-gradient">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-200/40 rounded-full mix-blend-multiply filter blur-[128px] animate-blob" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/40 rounded-full mix-blend-multiply filter blur-[128px] animate-blob animation-delay-2000" />
-        <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-yellow-200/40 rounded-full mix-blend-multiply filter blur-[128px] animate-blob animation-delay-4000" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/40 rounded-full mix-blend-multiply filter blur-[128px] animate-blob" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-100/40 rounded-full mix-blend-multiply filter blur-[128px] animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-slate-100/40 rounded-full mix-blend-multiply filter blur-[128px] animate-blob animation-delay-4000" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
@@ -21,7 +21,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-orange-100 border border-orange-200 text-orange-600 text-sm font-medium mb-4">
+            <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-medium mb-4">
               温暖同行的科技
             </span>
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-slate-800 mb-6">
@@ -58,9 +58,9 @@ export default function Hero() {
           className="relative group"
         >
           {/* Softer, lighter glow */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-orange-50 rounded-[3rem] blur-3xl transform group-hover:scale-105 transition-transform duration-700 opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-indigo-50 rounded-[3rem] blur-3xl transform group-hover:scale-105 transition-transform duration-700 opacity-60" />
           
-          <div className="relative z-10 rounded-[2.5rem] border border-white/60 bg-white/30 backdrop-blur-lg shadow-2xl shadow-blue-900/5 p-8 aspect-square flex items-center justify-center overflow-hidden">
+          <div className="relative z-10 rounded-[2.5rem] border border-white/60 bg-white/40 backdrop-blur-lg shadow-2xl shadow-blue-900/5 p-8 aspect-square flex items-center justify-center overflow-hidden">
              {/* Placeholder UI */}
              <div className="absolute inset-0 border-[1px] border-dashed border-blue-200/50 rounded-[2.5rem] m-4 pointer-events-none" />
              
