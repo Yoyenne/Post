@@ -37,12 +37,24 @@ const faqData = [
   {
     q: "有颜色选择吗？",
     a: "目前提供极昼白和深空灰两种经典配色。"
+  },
+  {
+    q: "支持哪些语言？",
+    a: "目前支持中文、英语、日语和西班牙语的语音播报。"
+  },
+  {
+    q: "可以试用吗？",
+    a: "我们提供 30 天无理由退货服务，您可以放心在家试用。"
+  },
+  {
+    q: "哪里可以维修？",
+    a: "全国主要城市均设有授权服务中心，或可使用我们的快递寄修服务。"
   }
 ];
 
 export default function FAQ() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-4 mb-16 text-center">
         <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <HelpCircle className="w-8 h-8 text-blue-600" />
@@ -54,29 +66,63 @@ export default function FAQ() {
       </div>
 
       <div className="container mx-auto px-4">
-        {/* Masonry Layout using CSS columns */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {faqData.map((item, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              viewport={{ once: true }}
-              className="break-inside-avoid"
-            >
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:shadow-blue-500/5 hover:border-blue-200 transition-all duration-300 group cursor-default">
-                 <h3 className="text-lg font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
-                   {item.q}
-                 </h3>
-                 <p className="text-slate-500 leading-relaxed">
-                   {item.a}
-                 </p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-[600px] overflow-hidden mask-gradient-y group">
+             {/* Column 1 - Downwards */}
+             <div className="flex flex-col gap-6 animate-marquee-vertical group-hover:[animation-play-state:paused]">
+                {[...faqData.slice(0, 4), ...faqData.slice(0, 4)].map((item, i) => (
+                   <FAQCard key={`c1-${i}`} item={item} />
+                ))}
+             </div>
+
+             {/* Column 2 - Upwards (Slower) */}
+             <div className="flex flex-col gap-6 animate-marquee-vertical-reverse group-hover:[animation-play-state:paused] hidden md:flex">
+                {[...faqData.slice(4, 8), ...faqData.slice(4, 8)].map((item, i) => (
+                   <FAQCard key={`c2-${i}`} item={item} />
+                ))}
+             </div>
+
+             {/* Column 3 - Downwards */}
+             <div className="flex flex-col gap-6 animate-marquee-vertical group-hover:[animation-play-state:paused] hidden lg:flex">
+                {[...faqData.slice(8, 12), ...faqData.slice(8, 12)].map((item, i) => (
+                   <FAQCard key={`c3-${i}`} item={item} />
+                ))}
+             </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes marquee-vertical {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-50%); }
+        }
+        @keyframes marquee-vertical-reverse {
+          0% { transform: translateY(-50%); }
+          100% { transform: translateY(0); }
+        }
+        .animate-marquee-vertical {
+          animation: marquee-vertical 40s linear infinite;
+        }
+        .animate-marquee-vertical-reverse {
+          animation: marquee-vertical-reverse 45s linear infinite;
+        }
+        .mask-gradient-y {
+          mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+          -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+      `}</style>
     </section>
+  );
+}
+
+function FAQCard({ item }: { item: { q: string, a: string } }) {
+  return (
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:shadow-blue-500/5 hover:border-blue-200 transition-all duration-300 cursor-default">
+       <h3 className="text-lg font-bold text-slate-800 mb-3 transition-colors hover:text-blue-600">
+         {item.q}
+       </h3>
+       <p className="text-slate-500 leading-relaxed text-sm">
+         {item.a}
+       </p>
+    </div>
   );
 }

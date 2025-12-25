@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@assets/generated_images/white_smart_cane_on_soft_blue_background.png";
+import heroImage from "@assets/generated_images/transparent_background_white_smart_cane_product_shot.png";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
@@ -49,10 +49,10 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-row gap-4"
             >
-              <Button size="lg" className="rounded-2xl h-14 px-8 text-lg bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-200 hover:-translate-y-1 transition-all duration-300">
-                立即体验 <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="default" className="rounded-2xl h-12 px-6 text-base bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-200 hover:-translate-y-1 transition-all duration-300">
+                立即体验 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="lg" className="rounded-2xl h-14 px-8 text-lg text-slate-700 hover:bg-white/50 hover:text-blue-700 border-2 border-transparent hover:border-blue-100 transition-all duration-300">
+              <Button variant="ghost" size="default" className="rounded-2xl h-12 px-6 text-base text-slate-700 hover:bg-white/50 hover:text-blue-700 border-2 border-transparent hover:border-blue-100 transition-all duration-300">
                 了解更多
               </Button>
             </motion.div>
@@ -65,14 +65,13 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative h-[600px] flex items-center justify-center lg:justify-end"
           >
-             {/* Abstract backing shape to frame the product */}
-             <div className="absolute right-0 w-[500px] h-[500px] bg-gradient-to-br from-white/40 to-white/10 rounded-full backdrop-blur-md border border-white/40 z-0" />
+             {/* Removed background shape for pure isolation */}
              
              <img 
                src={heroImage} 
                alt="Smart Cane Product" 
                className="relative z-10 w-full max-w-md object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700"
-               style={{ mixBlendMode: 'multiply' }} 
+               style={{ mixBlendMode: 'normal' }} 
              />
           </motion.div>
           
