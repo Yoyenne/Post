@@ -58,42 +58,36 @@
 }
 
 :root {
-  /* Warm & Accessible Light Theme */
-  /* Background: Soft Warm White/Cream */
-  --background: 40 33% 98%; /* #FDFBF7 */
-  --foreground: 220 15% 25%; /* Soft Dark Gray for text */
+  /* Richer Blue/White Theme */
+  --background: 210 40% 98%; /* Slightly cooler/deeper white */
+  --foreground: 222 47% 11%; /* Darker slate for text contrast */
 
-  /* Cards: Pure White */
   --card: 0 0% 100%;
-  --card-foreground: 220 15% 25%;
+  --card-foreground: 222 47% 11%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 220 15% 25%;
+  --popover-foreground: 222 47% 11%;
 
-  /* Primary: Warm Blue (Accessible/Friendly) */
-  --primary: 215 90% 55%; /* #3B82F6 range but slightly warmer/brighter */
-  --primary-foreground: 0 0% 100%;
+  --primary: 221 83% 53%; /* Stronger Blue (Blue 600) */
+  --primary-foreground: 210 40% 98%;
 
-  /* Secondary: Warm Peach/Beige for soft backgrounds */
-  --secondary: 35 100% 96%;
-  --secondary-foreground: 30 40% 40%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222 47% 11.2%;
 
-  /* Muted: Soft Grays */
-  --muted: 220 14% 96%;
-  --muted-foreground: 220 10% 45%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
 
-  /* Accent: Soft Coral/Orange for highlights */
-  --accent: 35 100% 96%;
-  --accent-foreground: 220 15% 25%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
 
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
 
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 215 90% 55%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221 83% 53%;
 
-  --radius: 1.5rem; /* Friendly large radius */
+  --radius: 1.5rem;
 }
 
 @layer base {
@@ -104,19 +98,15 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading tracking-tight text-slate-800;
+    @apply font-heading tracking-tight text-slate-900;
   }
 }
 
 .glass-card {
-  @apply bg-white/70 backdrop-blur-lg border border-white/40 shadow-xl;
+  @apply bg-white/80 backdrop-blur-lg border border-white/50 shadow-xl;
 }
 
-.glow-text {
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-}
-
-/* Custom Soft Gradients */
+/* Stronger Gradients */
 .bg-warm-gradient {
-  background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
 }

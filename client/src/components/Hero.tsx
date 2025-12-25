@@ -1,70 +1,82 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import sleekCaneImage from "@assets/generated_images/sleek_white_smart_cane_isolated_on_white_background.png";
+import heroImage from "@assets/generated_images/white_smart_cane_on_soft_blue_background.png";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
-      {/* Harmonious Blue/White Background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-blue-50 to-white">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-100/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob" />
-        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-indigo-50/60 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000" />
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50">
+      {/* Dynamic Background Shapes - Stronger Visibility */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-[10%] -left-[10%] w-[600px] h-[600px] bg-blue-200/50 rounded-full mix-blend-multiply filter blur-[80px] animate-blob" />
+        <div className="absolute top-[20%] -right-[10%] w-[500px] h-[500px] bg-indigo-200/50 rounded-full mix-blend-multiply filter blur-[80px] animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-[20%] left-[20%] w-[600px] h-[600px] bg-sky-200/50 rounded-full mix-blend-multiply filter blur-[80px] animate-blob animation-delay-4000" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 flex flex-col items-center text-center">
-        {/* Main Title Group */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-20 mb-[-120px] lg:mb-[-180px] pointer-events-none"
-        >
-          <h1 className="text-5xl md:text-8xl font-bold leading-tight tracking-tight text-slate-800 drop-shadow-sm">
-            智能盲杖 <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
-              重塑视界
-            </span>
-          </h1>
-          <p className="mt-6 text-xl text-slate-500 font-medium max-w-xl mx-auto">
-            通过 AI 避障与语音导航，为您带来前所未有的独立出行体验
-          </p>
-        </motion.div>
-
-        {/* Hero Image Layered */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 50 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative z-10 w-full max-w-4xl mx-auto mt-24"
-        >
-          {/* Blend Mask at bottom to merge with next section */}
-          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#F8FAFC] to-transparent z-20" />
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
-          <img 
-            src={sleekCaneImage} 
-            alt="Smart Cane Product" 
-            className="w-full h-auto object-contain drop-shadow-2xl mix-blend-multiply" 
-            style={{ maxHeight: "70vh" }}
-          />
-        </motion.div>
+          {/* Left: Content */}
+          <div className="text-left space-y-8 pl-4 lg:pl-0">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-blue-100 text-blue-700 font-semibold text-sm mb-6 shadow-sm">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                </span>
+                温暖同行的科技
+              </div>
+              
+              <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] text-slate-900 tracking-tight">
+                智能盲杖 <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                  重塑视界
+                </span>
+              </h1>
+              
+              <p className="text-xl text-slate-600 font-medium max-w-lg mt-6 leading-relaxed">
+                通过 AI 避障与语音导航，为您带来前所未有的独立出行体验。每一次出行，都是一次自信的探索。
+              </p>
+            </motion.div>
 
-        {/* Interactive Elements floating above bottom */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="absolute bottom-20 z-30 flex flex-col items-center gap-6"
-        >
-          <div className="flex gap-4">
-            <Button size="lg" className="rounded-full h-14 px-10 text-lg bg-slate-900 hover:bg-slate-800 text-white shadow-xl shadow-slate-200 hover:scale-105 transition-transform">
-              立即体验 <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="rounded-full h-14 px-10 text-lg border-white bg-white/60 hover:bg-white text-slate-700 backdrop-blur-md shadow-sm">
-              了解更多
-            </Button>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-row gap-4"
+            >
+              <Button size="lg" className="rounded-2xl h-14 px-8 text-lg bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-200 hover:-translate-y-1 transition-all duration-300">
+                立即体验 <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button variant="ghost" size="lg" className="rounded-2xl h-14 px-8 text-lg text-slate-700 hover:bg-white/50 hover:text-blue-700 border-2 border-transparent hover:border-blue-100 transition-all duration-300">
+                了解更多
+              </Button>
+            </motion.div>
           </div>
-        </motion.div>
+
+          {/* Right: Product Image - Clean & Isolated */}
+          <motion.div
+            initial={{ opacity: 0, x: 30, scale: 0.9 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative h-[600px] flex items-center justify-center lg:justify-end"
+          >
+             {/* Abstract backing shape to frame the product */}
+             <div className="absolute right-0 w-[500px] h-[500px] bg-gradient-to-br from-white/40 to-white/10 rounded-full backdrop-blur-md border border-white/40 z-0" />
+             
+             <img 
+               src={heroImage} 
+               alt="Smart Cane Product" 
+               className="relative z-10 w-full max-w-md object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700"
+               style={{ mixBlendMode: 'multiply' }} 
+             />
+          </motion.div>
+          
+        </div>
       </div>
     </section>
   );
