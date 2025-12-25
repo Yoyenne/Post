@@ -13,10 +13,9 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-8 text-slate-600 font-medium text-sm">
-          <a href="#" className="hover:text-blue-600 transition-colors">核心功能</a>
-          <a href="#" className="hover:text-blue-600 transition-colors">工作原理</a>
-          <a href="#" className="hover:text-blue-600 transition-colors">用户评价</a>
-          <a href="#" className="hover:text-blue-600 transition-colors">常见问题</a>
+          <Link href="/" className="hover:text-blue-600 transition-colors">首页</Link>
+          <Link href="/about" className="hover:text-blue-600 transition-colors">关于我们</Link>
+          <a href="#" className="hover:text-blue-600 transition-colors">联系我们</a>
         </div>
 
         <div className="flex items-center gap-4">
