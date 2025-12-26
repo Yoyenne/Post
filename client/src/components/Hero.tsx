@@ -1,19 +1,23 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import heroBg from "@assets/generated_images/dark_blue_abstract_technology_background.png";
+import heroVideo from "@assets/generated_videos/abstract_technology_background_with_glowing_blue_particles_and_data_flow.mp4";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-950 text-white">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="Abstract Background" 
-          className="w-full h-full object-cover opacity-60 mix-blend-overlay" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/60 to-slate-950/90" />
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover opacity-50 mix-blend-overlay scale-110" 
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-900/50 to-slate-950/90" />
       </div>
 
       {/* Tech Flow Animation Layer */}
