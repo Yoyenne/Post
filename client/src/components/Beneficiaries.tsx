@@ -1,6 +1,7 @@
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { motion } from "framer-motion";
 import asianWoman from "@assets/generated_images/asian_woman_using_smart_cane_in_city.png";
 import elderlyMan from "@assets/generated_images/smiling_elderly_man_in_park.png";
 import techSavvy from "@assets/generated_images/tech_savvy_person_with_smart_device.png";
@@ -26,10 +27,21 @@ const beneficiaries = [
     content: "语音导航非常精准，感觉就像有一位向导在身边。而且手感非常轻盈，长时间使用也不会觉得累。电池续航也完全不用担心。",
     avatar: "李",
     image: techSavvy
+  },
+  {
+    name: "王先生",
+    role: "科技博主",
+    content: "从技术角度来看，树莓派 5B 的边缘计算能力令人印象深刻。实时响应速度极快，完全没有感知延迟，这才是真正的 AI 落地应用。",
+    avatar: "王",
+    image: techSavvy
   }
 ];
 
 export default function Beneficiaries() {
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "center" }, [
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
+  ]);
+
   return (
     <section className="py-32 bg-white relative z-10">
       <div className="container mx-auto px-4">
@@ -38,42 +50,44 @@ export default function Beneficiaries() {
           <div className="h-1.5 w-20 bg-blue-600 mx-auto rounded-full" />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {beneficiaries.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Card className="h-full bg-white border border-slate-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(59,130,246,0.15)] transition-all duration-500 rounded-[2rem] overflow-hidden group">
-                <div className="relative h-[280px] overflow-hidden">
-                   <img 
-                     src={item.image} 
-                     alt={item.name}
-                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
-                   <div className="absolute bottom-6 left-6 text-white">
-                     <p className="font-bold text-lg">{item.name}</p>
-                     <p className="text-blue-200 text-sm">{item.role}</p>
-                   </div>
-                </div>
-                
-                <CardContent className="p-8 relative">
-                   {/* Quote Icon */}
-                   <div className="absolute -top-6 right-8 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg text-white text-2xl font-serif">
-                     "
-                   </div>
+        <div className="overflow-visible" ref={emblaRef}>
+          <div className="flex -ml-8">
+            {beneficiaries.map((item, index) => (
+              <div className="flex-[0_0_100%] md:flex-[0_0_70%] lg:flex-[0_0_40%] pl-8 min-w-0" key={index}>
+                <Card className="h-[600px] bg-white border border-slate-100/50 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_70px_-15px_rgba(59,130,246,0.1)] transition-all duration-500 rounded-[2.5rem] overflow-hidden group backdrop-blur-xl relative">
+                   <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent z-10 pointer-events-none" />
                    
-                   <p className="text-slate-600 text-lg leading-relaxed pt-2">
-                     {item.content}
-                   </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                   <div className="flex flex-col h-full">
+                      {/* Image - Top Half */}
+                      <div className="relative h-[60%] overflow-hidden">
+                         <img 
+                           src={item.image} 
+                           alt={item.name}
+                           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                         />
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
+                         <div className="absolute bottom-8 left-8 text-white z-20">
+                           <p className="font-bold text-2xl mb-1">{item.name}</p>
+                           <p className="text-blue-300 font-medium">{item.role}</p>
+                         </div>
+                      </div>
+                      
+                      {/* Content - Bottom Half */}
+                      <CardContent className="flex-1 p-10 relative flex items-center bg-white/50 backdrop-blur-md">
+                         {/* Quote Icon */}
+                         <div className="absolute -top-8 right-10 w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/30 text-white text-4xl font-serif z-20 group-hover:-translate-y-2 transition-transform duration-500">
+                           "
+                         </div>
+                         
+                         <p className="text-slate-600 text-lg leading-relaxed font-medium italic relative z-10">
+                           {item.content}
+                         </p>
+                      </CardContent>
+                   </div>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
