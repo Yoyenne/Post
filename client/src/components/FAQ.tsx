@@ -1,5 +1,4 @@
 import { HelpCircle, MessageCircle, PenTool, Search } from "lucide-react";
-import { motion } from "framer-motion";
 
 const faqData = [
   {
@@ -60,7 +59,7 @@ const faqData = [
 
 export default function FAQ() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="pt-12 pb-24 bg-white relative overflow-hidden"> {/* Reduced top padding */}
       <div className="container mx-auto px-4 mb-16 text-center">
         <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <HelpCircle className="w-8 h-8 text-blue-600" />

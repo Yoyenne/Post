@@ -16,6 +16,21 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/60 to-slate-950/90" />
       </div>
 
+      {/* Tech Flow Animation Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+         {/* Moving Gradient Orbs */}
+         <div className="absolute top-0 -left-20 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[100px] animate-blob" />
+         <div className="absolute bottom-0 -right-20 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[100px] animate-blob animation-delay-2000" />
+         
+         {/* Abstract Data Lines - Simulated with CSS */}
+         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-150 contrast-150 mix-blend-overlay"></div>
+         
+         {/* Floating Particles/Data Points */}
+         <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-blue-400 rounded-full blur-[2px] animate-float opacity-40"></div>
+         <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-indigo-400 rounded-full blur-[4px] animate-float animation-delay-1000 opacity-30"></div>
+         <div className="absolute bottom-1/4 left-1/2 w-1.5 h-1.5 bg-cyan-400 rounded-full blur-[1px] animate-float animation-delay-3000 opacity-50"></div>
+      </div>
+
       <div className="container relative z-10 mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           
@@ -34,25 +49,27 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-6xl md:text-8xl font-bold tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-blue-200 drop-shadow-2xl"
-          >
-            看见 <br className="md:hidden" />
-            <span className="text-white">未见的世界</span>
-          </motion.h1>
+          <div className="relative inline-block">
+             <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full scale-125 opacity-30" />
+             <motion.h1
+               initial={{ opacity: 0, scale: 0.95 }}
+               animate={{ opacity: 1, scale: 1 }}
+               transition={{ duration: 0.8, delay: 0.2 }}
+               className="relative z-10 text-6xl md:text-8xl font-bold tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-blue-200 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
+             >
+               智能盲杖 <br className="md:hidden" />
+               <span className="text-white drop-shadow-md">重塑视界</span>
+             </motion.h1>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed relative"
           >
-            融合边缘计算与生成式 AI，为您重塑感官边界。
-            <br className="hidden md:block" />
-            每一次前行，都是科技赋予的自由。
+            <span className="absolute inset-0 bg-slate-950/30 blur-xl -z-10 rounded-full"></span>
+            <span className="relative z-10">融合边缘计算与生成式 AI，为您重塑感官边界。<br className="hidden md:block" />每一次前行，都是科技赋予的自由。</span>
           </motion.p>
 
           <motion.div
@@ -70,10 +87,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-10 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-indigo-500/20 rounded-full blur-[120px] animate-pulse-slow delay-700" />
 
       {/* Bottom Transition - Large Curve */}
       <div className="absolute bottom-0 left-0 w-full h-24 md:h-48 overflow-hidden z-20">

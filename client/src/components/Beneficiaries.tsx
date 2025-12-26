@@ -43,9 +43,9 @@ export default function Beneficiaries() {
   ]);
 
   return (
-    <section className="py-32 bg-white relative z-10">
+    <section className="pt-24 pb-12 bg-white relative z-10"> {/* Reduced top/bottom padding for compactness */}
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">谁从中受益？</h2>
           <div className="h-1.5 w-20 bg-blue-600 mx-auto rounded-full" />
         </div>
