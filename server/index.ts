@@ -84,15 +84,18 @@ app.use((req, res, next) => {
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || "5000", 10);
+  // 将端口改为 5001 (避开 Windows 系统占用的 5000)
+  // 将 host 改为 '127.0.0.1' (本地回环地址，Windows 兼容性更好)
+  const port = 5002; 
+  
   httpServer.listen(
     {
       port,
-      host: "0.0.0.0",
-      reusePort: true,
+      host: "127.0.0.1", // 明确指定本地地址
+      // reusePort: true, // 在 Windows 上这一行有时也会触发兼容性问题，建议先注释掉
     },
     () => {
-      log(`serving on port ${port}`);
+      log(`本地预览地址: http://127.0.0.1:${port}`);
     },
   );
 })();
