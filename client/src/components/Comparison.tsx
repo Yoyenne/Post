@@ -11,38 +11,48 @@ const comparisonData = [
 
 export default function Comparison() {
   return (
-    <section className="py-24 bg-white">
+    <section className="bg-white py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-800 mb-4">为什么选择 Smart Cane？</h2>
-          <p className="text-slate-500">看看我们与普通产品的区别。</p>
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-slate-800 md:text-5xl">为什么选择云杖启明？</h2>
+          <p className="text-slate-500">看看我们与普通盲杖之间的体验差异。</p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl shadow-slate-100 border border-slate-100 overflow-hidden">
-          <div className="grid grid-cols-3 p-6 border-b border-slate-100 bg-slate-50/50">
-            <div className="text-slate-500 font-medium">功能特性</div>
-            <div className="text-center font-bold text-blue-600 text-lg">Smart Cane</div>
+        <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-xl shadow-slate-100">
+          <div className="grid grid-cols-3 border-b border-slate-100 bg-slate-50/50 p-6">
+            <div className="font-medium text-slate-500">功能特性</div>
+            <div className="text-center text-lg font-bold text-blue-600">云杖启明</div>
             <div className="text-center text-slate-400">普通盲杖</div>
           </div>
-          
+
           <div className="divide-y divide-slate-50">
             {comparisonData.map((row, i) => (
-              <div key={i} className="grid grid-cols-3 p-6 hover:bg-slate-50/50 transition-colors items-center">
-                <div className="text-slate-700 font-medium">{row.feature}</div>
-                
-                {/* Us */}
+              <div key={i} className="grid grid-cols-3 items-center p-6 transition-colors hover:bg-slate-50/50">
+                <div className="font-medium text-slate-700">{row.feature}</div>
+
                 <div className="flex justify-center text-slate-800">
                   {typeof row.us === "boolean" ? (
-                    row.us ? <div className="bg-blue-100 p-1.5 rounded-full"><Check className="w-5 h-5 text-blue-600" /></div> : <X className="w-5 h-5 text-slate-400" />
+                    row.us ? (
+                      <div className="rounded-full bg-blue-100 p-1.5">
+                        <Check className="h-5 w-5 text-blue-600" />
+                      </div>
+                    ) : (
+                      <X className="h-5 w-5 text-slate-400" />
+                    )
                   ) : (
-                    <span className="font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full text-sm">{row.us}</span>
+                    <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-bold text-blue-600">
+                      {row.us}
+                    </span>
                   )}
                 </div>
 
-                {/* Competitor */}
                 <div className="flex justify-center text-slate-400">
                   {typeof row.competitor === "boolean" ? (
-                    row.competitor ? <Check className="w-5 h-5 text-slate-400" /> : <X className="w-5 h-5 text-slate-300" />
+                    row.competitor ? (
+                      <Check className="h-5 w-5 text-slate-400" />
+                    ) : (
+                      <X className="h-5 w-5 text-slate-300" />
+                    )
                   ) : (
                     <span className="text-sm">{row.competitor}</span>
                   )}
